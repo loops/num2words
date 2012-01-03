@@ -2,15 +2,20 @@
 #include "data.h"
 #include "convert.h"
 
+static unsigned int icount;
+static unsigned long sum, ccount;
+
+inline static int target_reached(const unsigned long count)
+{
+	return count >= 51000000000L;
+}
+
 inline static void yield(unsigned int number, unsigned int length)
 {
-	static unsigned long sum, ccount;
-	static unsigned int icount;
-
 	++icount;
 	sum += number;
 	ccount += length;
-	if (ccount >= 51000000000L) {
+	if (target_reached(ccount)) {
 		printf("Final Integer: %u\n", number);
 		printf("Written as: "); print_as_words(number); printf("\n");
 		printf("Integer Sum: %lu\n", sum);
@@ -28,6 +33,16 @@ inline static void thousands(unsigned int number, unsigned int length)
 
 inline static void millions(unsigned int number, unsigned int length)
 {
+	// Don't iterate this million if we can just account for it in bulk
+	unsigned long fast = 44872000L + length * 999999L;
+	if (!target_reached(ccount + fast)) {
+		ccount += fast;
+		icount += 999999;
+		sum += 499999500000L;
+		sum += 999999L * (unsigned long) number;
+		return;
+	}
+
 	for (int i=0; i<MIDDLE; ++i) {
 		unsigned int mn = middle[i].num;
 		unsigned int tn = number + mn, tl = length + middle[i].len;

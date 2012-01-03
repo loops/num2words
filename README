@@ -11,9 +11,9 @@ and rekindled by Nathan Wong:
 All the integers between 1, and 999,999,999 are spelled out as
 words and then sorted alphabetically into a list.  Letters are
 counted from the start of the list and the integer that completes
-just as 51billion letters have been scanned is printed out.
+just as 51 billion letters have been scanned, is printed out.
 
-A typical run on a 1.6Ghz machine is:
+A typical run on a 1.6Ghz machine is very quick:
 
   $ time ./solve
   Final Integer: 676746575
@@ -22,10 +22,9 @@ A typical run on a 1.6Ghz machine is:
   Character Count: 51000000000
   Number of integers: 723302492
   
-  real    0m1.162s
-  user    0m1.151s
-  sys     0m0.002s
-
+  real    0m0.004s
+  user    0m0.003s
+  sys     0m0.001s
 
 A program (gen.c) is also included that was used to generate the "data.h"
 source file which contains the tables used to iterate through the sorted
