@@ -27,6 +27,7 @@ void three_digits(char *str, unsigned int v)
  
 void number_to_words(char *str, unsigned int v)
 {
+	strcpy(str,"");
 	if (v > 999999) {
 		three_digits(str, v/1000000);
 		strcat(str, "million");
@@ -44,7 +45,6 @@ const int max_words_length = 100;
 unsigned int length(unsigned int v)
 {
 	char tmp[max_words_length];
-	strcpy(tmp,"");
 	number_to_words(tmp,v);
 	return strlen(tmp);
 }
@@ -52,7 +52,6 @@ unsigned int length(unsigned int v)
 void print_as_words(unsigned int v)
 {
 	char tmp[max_words_length];
-	strcpy(tmp,"");
 	number_to_words(tmp,v);
 	printf("%s", tmp);
 }

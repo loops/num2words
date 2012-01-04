@@ -23,9 +23,7 @@ const char* defstr=	"#define BASE 999\n"
 
 int compare(const void *a, const void *b)
 {
-	char ta[100], tb[100];
-	strcpy(ta,"");
-	strcpy(tb,"");
+	char ta[max_words_length], tb[max_words_length];
 	number_to_words(ta,((WORDS*) a)->num);
 	number_to_words(tb,((WORDS*) b)->num);
 	return strcmp(ta,tb);
