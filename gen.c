@@ -63,15 +63,13 @@ void generate_data()
 		mid[i]=low[i];
 	}
 
-	printf("%s", defstr);
-
 	qsort(low, BASE, sizeof(WORDS), compare);
-	dump(low,BASE,"base");
-
 	qsort(mid, MIDDLE, sizeof(WORDS), compare);
-	dump(mid,MIDDLE,"middle");
-
 	qsort(hi, HIGH, sizeof(WORDS), compare);
+
+	printf("%s", defstr);
+	dump(low,BASE,"base");
+	dump(mid,MIDDLE,"middle");
 	dump(hi,HIGH,"high");
 }
 
