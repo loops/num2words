@@ -41,4 +41,4 @@ void number_to_words(char *str, unsigned int v)
 	three_digits(str,v);
 }
 
-const int max_words_length = 100;  // Real max is 87 + a null
+const int max_words_length = 88;  // eg. # 377377377 + a null
