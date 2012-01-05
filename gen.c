@@ -21,6 +21,13 @@ const char* defstr=	"#define BASE 999\n"
 			"} WORDS;\n"
 			"\n";
 
+unsigned int length(unsigned int v)
+{
+	char tmp[max_words_length];
+	number_to_words(tmp,v);
+	return strlen(tmp);
+}
+
 int compare(const void *a, const void *b)
 {
 	char ta[max_words_length], tb[max_words_length];

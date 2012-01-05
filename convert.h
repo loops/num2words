@@ -41,18 +41,4 @@ void number_to_words(char *str, unsigned int v)
 	three_digits(str,v);
 }
 
-const int max_words_length = 100;
-unsigned int length(unsigned int v)
-{
-	char tmp[max_words_length];
-	number_to_words(tmp,v);
-	return strlen(tmp);
-}
-
-void print_as_words(unsigned int v)
-{
-	char tmp[max_words_length];
-	number_to_words(tmp,v);
-	printf("%s", tmp);
-}
-
+const int max_words_length = 100;  // Real max is 87 + a null

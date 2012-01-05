@@ -2,6 +2,13 @@
 #include "data.h"
 #include "convert.h"
 
+void print_as_words(unsigned int v)
+{
+	char tmp[max_words_length];
+	number_to_words(tmp,v);
+	printf("%s", tmp);
+}
+
 static unsigned int icount;
 static unsigned long sum, ccount;
 
